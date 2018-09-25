@@ -1,0 +1,16 @@
+from itertools import groupby
+from collections import deque
+t = int(input())
+for i in range(t):
+    a = int(input())
+    b = deque([int(x) for x,y in groupby(input().split())])
+    for num in reversed(sorted(b)):
+        if b[0] == num:
+            b.popleft()
+        elif b[-1] == num:
+            b.pop()
+        else:
+            print ("No")
+            break
+    else:
+        print ("Yes")

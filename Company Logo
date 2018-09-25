@@ -1,0 +1,17 @@
+from collections import Counter, OrderedDict
+from fileinput import input
+
+class OrderedCounter(Counter, OrderedDict):
+    def __init__(self,items):
+        super(OrderedCounter,self).__init__(sorted(items))
+def txt(text,n):
+    c = OrderedCounter(text)
+    return c.most_common(n)
+
+def main():
+    word = input()[0]
+    for l,count in txt(word,3):
+        print(l,count)
+if __name__=="__main__":
+    main()
+
